@@ -11,10 +11,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328091741) do
+ActiveRecord::Schema.define(version: 20160328131551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bikes", force: :cascade do |t|
+    t.string   "make"
+    t.string   "model"
+    t.string   "engine"
+    t.string   "year"
+    t.string   "type"
+    t.integer  "rate_daily"
+    t.string   "bike_image"
+    t.integer  "location_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "bikes", ["location_id"], name: "index_bikes_on_location_id", using: :btree
+  add_index "bikes", ["user_id"], name: "index_bikes_on_user_id", using: :btree
+
+  create_table "bookings", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "user_id"
+    t.integer  "bike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bookings", ["bike_id"], name: "index_bookings_on_bike_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "country"
+    t.string   "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "profile_image"
+    t.string   "name"
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "rating"
+    t.integer  "booking_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "reviews", ["booking_id"], name: "index_reviews_on_booking_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,4 +91,10 @@ ActiveRecord::Schema.define(version: 20160328091741) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bikes", "locations"
+  add_foreign_key "bikes", "users"
+  add_foreign_key "bookings", "bikes"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "reviews", "bookings"
 end
