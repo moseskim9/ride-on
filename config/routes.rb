@@ -1,5 +1,27 @@
 Rails.application.routes.draw do
 
+  get 'bikes/index'
+
+  get 'bikes/show'
+
+  get 'bikes/new'
+
+  get 'bikes/create'
+
+  get 'bikes/edit'
+
+  get 'bikes/update'
+
+  get 'bikes/destroy'
+
+  get 'locations/index'
+
+  get 'locations/show'
+
+  get 'locations/new'
+
+  get 'locations/create'
+
   devise_for :users
   root 'pages#welcome'
 
