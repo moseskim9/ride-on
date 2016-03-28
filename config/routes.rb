@@ -1,5 +1,33 @@
 Rails.application.routes.draw do
 
+  # get 'reviews/index'
+
+  # get 'reviews/show'
+
+  # get 'reviews/new'
+
+  # get 'reviews/create'
+
+  # get 'reviews/edit'
+
+  # get 'reviews/update'
+
+  # get 'reviews/destroy'
+
+  # get 'bookings/index'
+
+  # get 'bookings/show'
+
+  # get 'bookings/new'
+
+  # get 'bookings/create'
+
+  # get 'bookings/edit'
+
+  # get 'bookings/update'
+
+  # get 'bookings/destroy'
+
   devise_for :users
   root 'pages#welcome'
 
