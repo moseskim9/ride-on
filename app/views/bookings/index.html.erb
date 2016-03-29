@@ -1,2 +1,25 @@
+<div class="show-box">
+
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+
+<p> You are user id: <%= @current_user.id %> </p>
+
+<p> Here are your bookings:</p>
+
+
+<% @user_bookings.each do |b| %>
+<p> start date: <%= b.start_date %> end date: <%= b.end_date%> </p>
+<% end %>
+
+<br>
+<br>
+<br>
+
+<p> Here are all the  bookings:</p>
+<% @bookings.each do |b| %>
+
+<p> User id: <%= b.user_id %> start date: <%= b.start_date %> end date: <%= b.end_date%> </p>
+<% end %>
+
+</div>

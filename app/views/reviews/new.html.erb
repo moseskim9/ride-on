@@ -1,2 +1,16 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+
+
+<div class="container">
+<div class="form-box">
+
+<h1>Review your experience!</h1>
+
+<%= simple_form_for [@booking, @review], html: { class: 'form-horizontal' } do |f| %>
+  <%= f.input :description %>
+  <%= f.input :rating %>
+  <%= f.button :submit %>
+<% end %>
+
+
+</div>
+</div>
