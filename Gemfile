@@ -6,10 +6,18 @@ gem 'simple_form'
 
 gem 'figaro'
 
+gem 'cloudinary'
+
+gem 'carrierwave'
+
+gem 'autoprefixer-rails'
+
+gem 'font-awesome-sass'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use postgresql as the database for Active Record
+# Use postgresqlupthe database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
