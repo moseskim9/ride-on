@@ -1,4 +1,4 @@
-<div class="navbar-wagon navbar-wagon-fixed">
+<div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "vespa.png" %>
@@ -7,7 +7,13 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-
+    <!-- Search form -->
+    <form action="" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
@@ -23,70 +29,36 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-
-          <!-- Trigger the modal with a button -->
-        <button type="button" class="navbar-saily-button" data-toggle="modal" data-target="#SigninModal">Sign in</button>
-        <button type="button" class="navbar-saily-button" id="signupbtn" data-toggle="modal" data-target="#SignupModal">Sign up</button>
-
-
-        <!-- Modal -->
-        <!-- SigninModal -->
-          <div class="modal fade" id="SigninModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Sign In</h4>
-                </div>
-                <div class="modal-body">
-                  <form method="post" action='' name="login_form">
-                    <p><input type="text" class="span3" name="eid" id="email" placeholder="Email" ></p>
-                    <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
-                    <p><button type="submit" class="btn btn-primary">Sign in</button>
-                      <a href="#">Forgot Password?</a>
-                    </p>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- SignupModal -->
-          <div class="modal fade" id="SignupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-                  </div>
-                  <div class="modal-body">
-                    <form method="post" action='' name="login_form">
-                      <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
-                      <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
-                      <p><button type="submit" class="btn btn-primary">Sign Up</button></p>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
+              <% end %>
+            </li>
+          </ul>
         </div>
       </div>
-
-      <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Become a host"), '#', class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% else %>
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Create an account"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
     <% end %>
 
+    <!-- Button (call-to-action) -->
+    <%= link_to t(".top_call_to_action", default: "List your bike"), new_booking_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -94,8 +66,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><a href="#">Some mobile link</a></li>
+        <li><a href="#">Other one</a></li>
+        <li><a href="#">Other one</a></li>
       </ul>
     </div>
   </div>
