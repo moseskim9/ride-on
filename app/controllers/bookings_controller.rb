@@ -14,10 +14,11 @@ class BookingsController < ApplicationController
 
   def create
     booking = Booking.new(booking_params)
-  if booking.save
-    redirect_to booking_path(@booking)
-  else
-    render :new
+    if booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -33,11 +34,11 @@ class BookingsController < ApplicationController
   end
 
 
+  private
+
   def find_booking
     @booking = Booking.find(params[:id])
   end
-
-  private
 
   def booking_params
     params.require(:booking).permit(:end_date, :start_date)
