@@ -2,13 +2,16 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:show]
 
   def index
+    @booking = Booking.find(params[:booking_id])
     @reviews = Review.all
   end
 
   def show
+    @booking = Booking.find(params[:booking_id])
   end
 
   def new
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
@@ -18,7 +21,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to booking_path(@booking)
     else
-      redirect_to booking_path
+      render :new
     end
   end
 

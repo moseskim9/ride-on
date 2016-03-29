@@ -1,8 +1,14 @@
 class BookingsController < ApplicationController
   before_action :find_booking, only: [:show, :edit, :update, :destroy]
+    before_action :find_current_user, only: [:index, :show, :create, :user_bookings]
 
   def index
     @bookings = Booking.all
+    @user_bookings = @current_user.bookings
+  end
+
+  def user_bookings
+
   end
 
   def show
@@ -13,7 +19,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @booking = @user.bookings.build(booking_params)
     if @booking.save
       redirect_to booking_path(@booking.id)
@@ -35,7 +40,12 @@ class BookingsController < ApplicationController
   end
 
 
+
   private
+
+  def find_current_user
+    @current_user = current_user
+  end
 
   def find_booking
     @booking = Booking.find(params[:id])
