@@ -2,14 +2,16 @@ class ProfilesController < ApplicationController
   before_action :find_profile, only:[:edit, :update]
 
   def show
-    @profile = current_user
+    @profile = current_user.profile
   end
 
   def edit
+
   end
 
   def update
     @profile.update(profile_params)
+    redirect_to profile_path(@profile)
   end
 
   private
