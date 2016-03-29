@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'pages#welcome'
+  root "pages#welcome"
 
   resources :profiles, only: [:show, :edit, :update]
 

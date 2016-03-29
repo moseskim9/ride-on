@@ -2,6 +2,13 @@
 <p>Find me in app/views/pages/welcome.html.erb</p>
 
 
+
+
+
+<% if user_signed_in? %>
+
 <%= link_to "sign out", destroy_user_session_path, method: "delete", class: "btn" %>
 
 <%= link_to "my_profile", profile_path(current_user), class: "btn" %>
+<% end %>
+
