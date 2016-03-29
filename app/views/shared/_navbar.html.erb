@@ -1,0 +1,102 @@
+<div class="navbar-wagon navbar-wagon-fixed">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "vespa.png" %>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+
+
+    <!-- Different navigation if login or not -->
+    <% if user_signed_in? %>
+
+      <!-- Notification -->
+      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+        <div class="badge-container">
+          <i class="fa fa-envelope-o"></i>
+          <div class="badge badge-blue">3</div>
+        </div>
+      <% end %>
+
+      <!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+
+          <!-- Trigger the modal with a button -->
+        <button type="button" class="navbar-saily-button" data-toggle="modal" data-target="#SigninModal">Sign in</button>
+        <button type="button" class="navbar-saily-button" id="signupbtn" data-toggle="modal" data-target="#SignupModal">Sign up</button>
+
+
+        <!-- Modal -->
+        <!-- SigninModal -->
+          <div class="modal fade" id="SigninModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                </div>
+                <div class="modal-body">
+                  <form method="post" action='' name="login_form">
+                    <p><input type="text" class="span3" name="eid" id="email" placeholder="Email" ></p>
+                    <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
+                    <p><button type="submit" class="btn btn-primary">Sign in</button>
+                      <a href="#">Forgot Password?</a>
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- SignupModal -->
+          <div class="modal fade" id="SignupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form method="post" action='' name="login_form">
+                      <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
+                      <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
+                      <p><button type="submit" class="btn btn-primary">Sign Up</button></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Button (call-to-action) -->
+    <%= link_to t(".top_call_to_action", default: "Become a host"), '#', class: "navbar-wagon-item navbar-wagon-button btn" %>
+
+    <% else %>
+
+      <!-- Login text link -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <!-- Button (call-to-action) -->
+    <%= link_to t(".top_call_to_action", default: "Create an account"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
+    <% end %>
+
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

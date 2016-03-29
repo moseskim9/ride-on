@@ -1,10 +1,4 @@
 
-<% if user_signed_in? %>
-
-<%= link_to "sign out", destroy_user_session_path, method: "delete", class: "btn" %>
-
-<%= link_to "my_profile", profile_path(current_user), class: "btn" %>
-<% end %>
 
 
 
@@ -37,24 +31,34 @@
 
 
 
-    <div class="container container-local">
-      <div class="row">
-        <% @bikes.each do |bike| %>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag bike.bike_image %>
-            <div class="caption">
-              <h3> <%= bike.model %> </h3>
-            </div>
-          </div>
+<div class="container container-local">
+  <div class="row">
+    <% @bikes.each do |bike| %>
+    <div class="col-sm-6 col-md-4">
+
+
+      <div class="card" style="background-image: url('<%= image_url bike.bike_image %>'), linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+
+        <div class="card-category">Popular</div>
+        <div class="card-description">
+          <h2><%= bike.make %></h2>
+          <p><%= bike.model %>  -  <%= bike.rate_daily %></p>
         </div>
-        <% end %>
+
       </div>
+
     </div>
+    <% end %>
+  </div>
+</div>
 
 
+<% if user_signed_in? %>
 
+<%= link_to "sign out", destroy_user_session_path, method: "delete", class: "btn" %>
 
+<%= link_to "my_profile", profile_path(current_user), class: "btn" %>
+<% end %>
 
 
 
