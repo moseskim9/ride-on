@@ -1,10 +1,26 @@
 Rails.application.routes.draw do
 
-
   root 'pages#welcome'
+
+  resources :profiles, only: [:show, :edit, :update]
+
+  resources :bookings do
+
+    resources :reviews, only: [:index, :show, :new, :create]
+
+    resources :users, only: [:show, :new, :create]
+
+    resources :bikes do
+
+      resources :locations, only: [:index, :show, :new, :create]
+
+    end
+
+  end
 
   devise_for :users
 
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -61,4 +77,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-end
+
