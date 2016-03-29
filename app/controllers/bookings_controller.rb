@@ -13,9 +13,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    booking = Booking.new(booking_params)
-    if booking.save
-      redirect_to booking_path(@booking)
+    @user = current_user
+    @booking = @user.bookings.build(booking_params)
+    if @booking.save
+      redirect_to booking_path(@booking.id)
     else
       render :new
     end
@@ -26,7 +27,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to booking_path(@restaurant)
+    redirect_to bookings_path(@booking)
   end
 
   def destroy
