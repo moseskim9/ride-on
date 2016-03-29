@@ -3,6 +3,22 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
+  process eager: true
+
+  process convert: 'jpg'
+
+    version :standard do
+    resize_to_fit 800, 600
+  end
+
+   version :bright_face do
+    cloudinary_transformation effect: "brightness:30", radius: 5,
+      width: 150, height: 150, crop: :thumb, gravity: :face
+  end
+
+end
+
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -58,4 +74,3 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-end
