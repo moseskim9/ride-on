@@ -36,7 +36,7 @@ class BikesController < ApplicationController
   private
 
     def bike_params
-      params.require(:bike).permit(:make, :model, :engine, :year, :type, :rate_daily, :bike_image)
+      params.require(:bike).permit(:make, :model, :engine, :year, :type, :rate_daily, :bike_image, :bike_image_cache)
     end
 
 
