@@ -3,7 +3,7 @@
 
 <h1>Rent this bike now!</h1>
 
-<%= simple_form_for [@bike, @booking], html: { class: 'form-horizontal' } do |f| %>
+<%= simple_form_for [@location, @bike, @booking], html: { class: 'form-horizontal' } do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.button :submit %>

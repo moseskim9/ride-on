@@ -12,14 +12,16 @@ class BookingsController < ApplicationController
 
   def new
     @bike = Bike.find(params[:bike_id])
+    @location = Location.find(params[:location_id])
     @booking = @bike.bookings.new
   end
 
   def create
     @bike = Bike.find(params[:bike_id])
+    @location = Location.find(params[:location_id])
     @booking = @bike.bookings.build(booking_params)
     if @booking.save
-      redirect_to bike_booking_path(@bike, @booking)
+      redirect_to location_bike_booking_path(@location, @bike, @booking)
     else
       render :new
     end

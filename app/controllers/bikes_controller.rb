@@ -7,6 +7,9 @@ class BikesController < ApplicationController
     end
 
     def show
+      @reviews = Review.all
+      # @review = Review.find(params[:review_id])
+      @location = Location.find(params[:location_id])
     end
 
     def new
