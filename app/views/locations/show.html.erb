@@ -9,7 +9,7 @@
 <br>
 
 <% @location.bikes.each do |bike| %>
-    <p><%= image_tag bike.bike_image %></p>
+    <p><%= cl_image_tag bike.bike_image %></p>
     <h2> <%= link_to bike.make, location_bike_path(@location, bike) %> </h2>
     <p> <%= bike.model %> </p>
     <p> <%= bike.year %> </p>
