@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @bike = Bike.find(params[:id])
+    # @bike = Bike.find(params[:id])
   end
 
   # def new

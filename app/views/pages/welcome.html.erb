@@ -59,6 +59,9 @@
 <%= link_to "my_profile", profile_path(current_user), class: "btn" %>
 <% end %>
 
+<% @latest_bikes.each do |bike| %>
+<p><%= bike.make %></p>
+<% end %>
 
 <%= render 'shared/footer' %>
 

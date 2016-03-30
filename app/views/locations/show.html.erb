@@ -1,9 +1,15 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<h1> <%= @location.city%></h1>
+<br>
+<br>
 
+<%= link_to t(".top_call_to_action", default: "List your bike"), new_location_bike_path(@location), class: "navbar-wagon-item navbar-wagon-button btn" %>
 
+<br>
+<br>
+<br>
 
 <% @location.bikes.each do |bike| %>
+    <p><%= image_tag bike.bike_image %></p>
     <h2> <%= link_to bike.make, location_bike_path(@location, bike) %> </h2>
     <p> <%= bike.model %> </p>
     <p> <%= bike.year %> </p>
