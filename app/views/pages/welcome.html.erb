@@ -56,7 +56,7 @@
 
 <%= link_to "sign out", destroy_user_session_path, method: "delete", class: "btn" %>
 
-<%= link_to "my_profile", profile_path(current_user), class: "btn" %>
+<%= link_to "my_profile", user_profile_path(current_user), class: "btn" %>
 <% end %>
 
 <% @latest_bikes.each do |bike| %>

@@ -4,18 +4,16 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resource :profile, only: [:show, :edit, :update]
-
   resources :locations, only: [:index, :show] do
-    resources :bikes
+    resources :bikes do
+       resources :bookings
+       resources :reviews, only: [:new, :create]
+    end
   end
 
-  resources :bikes, only: [:index]
-
-  # resources :bookings do
-  #   resources :reviews, only: [:index, :show, :new, :create]
-  #   resources :users, only: [:show, :new, :create]
-  # end
+  resources :users, only: [:show] do
+    resource :profile, only: [:show, :edit, :update]
+  end
 
 end
 

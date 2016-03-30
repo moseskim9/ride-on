@@ -3,11 +3,26 @@
 
 <%= cl_image_tag @bike.bike_image, height: 300, width: 400, crop: :fill %>
 
-<%= @bike.make%>
-<%= @bike.model%>
-<%= @bike.engine%>
-<%= @bike.year%>
-<%= @bike.bike_type%>
-<%= @bike.rate_daily%>
-<%= @location%>
+<p><%= @bike.make%></p>
+<p><%= @bike.model%></p>
+<p><%= @bike.engine%></p>
+<p><%= @bike.year%></p>
+<p><%= @bike.bike_type%></p>
+<p><%= @bike.rate_daily%></p>
+<p><%= @location%></p>
+
+<p><%= link_to "Book this bike!", new_location_bike_booking_path(@location, @bike) %></p>
+
+<p><%= link_to "Add a review", new_location_bike_review_path(@location, @bike)
+%></p>
+
+
+<h3>Reviews: </h3>
+<% @reviews.each do |r| %>
+  <p> Description: <%= r.description %> </p>
+  <p> Rating: <%= r.rating %> </p>
+<% end %>
+
+
+
 
