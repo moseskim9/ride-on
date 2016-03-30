@@ -1,2 +1,9 @@
 <h1>Locations#new</h1>
 <p>Find me in app/views/locations/new.html.erb</p>
+
+
+<%= simple_form_for [@bike, @location] do |f| %>
+  <%= f.input :country %>
+  <%= f.input :city %>
+  <%= f.button :submit %>
+<% end %>

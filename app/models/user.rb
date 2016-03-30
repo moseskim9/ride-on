@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_one :profile
+  has_one  :profile
   has_many :bikes
   has_many :bookings
 

@@ -1,2 +1,12 @@
 <h1>Bikes#index</h1>
 <p>Find me in app/views/bikes/index.html.erb</p>
+
+<% @bikes.each do |bike|%>
+  <h1> <%= bike.bike_image %> </h1>
+  <h3> <%= link_to bike.make, location_bikes_path(bike) %> </h3>
+  <p>  <%= bike.model %> </p>
+  <p>  <%= bike.bike_type %> </p>
+  <p>  <%= bike.engine %> </p>
+  <p>  <%= bike.year %> </p>
+<% end %>
+

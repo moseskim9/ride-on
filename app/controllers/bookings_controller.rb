@@ -7,32 +7,32 @@ class BookingsController < ApplicationController
     @user_bookings = @current_user.bookings
   end
 
-  def user_bookings
-
-  end
-
   def show
   end
 
   def new
-    @booking = Booking.new
+    @bike = Bike.find(params[:bike_id])
+    @booking = @bike.bookings.new
   end
 
   def create
-    @booking = @user.bookings.build(booking_params)
+    @bike = Bike.find(params[:bike_id])
+    @booking = @bike.bookings.build(booking_params)
     if @booking.save
-      redirect_to booking_path(@booking.id)
+      redirect_to bike_booking_path(@bike, @booking)
     else
       render :new
     end
   end
 
   def edit
+    @bike = Bike.find(params[:bike_id])
   end
 
   def update
+    @bike = Bike.find(params[:bike_id])
     @booking.update(booking_params)
-    redirect_to bookings_path(@booking)
+    redirect_to bike_booking_path(@bike, @booking)
   end
 
   def destroy

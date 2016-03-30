@@ -2,23 +2,20 @@ Rails.application.routes.draw do
 
   root "pages#welcome"
 
-  resources :profiles, only: [:show, :edit, :update]
+  devise_for :users
 
-  resources :bookings do
+  resource :profile, only: [:show, :edit, :update]
 
-    resources :reviews, only: [:index, :show, :new, :create]
-
-    resources :users, only: [:show, :new, :create]
-
-    resources :bikes do
-
-      resources :locations, only: [:index, :show, :new, :create]
-
-    end
-
+  resources :locations, only: [:index, :show] do
+    resources :bikes
   end
 
-  devise_for :users
+  resources :bikes, only: [:index]
+
+  # resources :bookings do
+  #   resources :reviews, only: [:index, :show, :new, :create]
+  #   resources :users, only: [:show, :new, :create]
+  # end
 
 end
 

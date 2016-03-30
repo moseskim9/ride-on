@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def welcome
-    @bikes = Bike.all
+    @locations = Location.all
   end
 end

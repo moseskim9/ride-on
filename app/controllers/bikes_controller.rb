@@ -1,4 +1,5 @@
 class BikesController < ApplicationController
+
   before_action :find_bike, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -9,24 +10,23 @@ class BikesController < ApplicationController
     end
 
     def new
-      @bike = Bike.new
+      @bike = location.bikes.new
     end
 
     def create
-      @booking = Booking.find(params[:booking_id])
-      @bike = @booking.bikes.build(bike_params)
-        if @bike.save
-      redirect_to bikes_path
-        else
-      redirect_to
-        end
+      @bike = location.bikes.build(bike_params)
+      if @bike.save
+        redirect_to location_bike_path(location, @bike)
+      else
+        render :new
+      end
     end
 
     def edit
     end
 
     def update
-      @bike = Bike.update(bike_params)
+      # @bike = Bike.update(bike_params)
     end
 
     def destroy
@@ -36,11 +36,14 @@ class BikesController < ApplicationController
   private
 
     def bike_params
-      params.require(:bike).permit(:make, :model, :engine, :year, :type, :rate_daily, :bike_image, :bike_image_cache)
+      params.require(:bike).permit(:make, :model, :engine, :year, :bike_type, :rate_daily, :bike_image)
     end
 
+    def location
+      @location = Location.find(params[:location_id])
+    end
 
     def find_bike
-        @bike = Bike.find(params[:id])
+      @bike = Bike.find(params[:id])
     end
 end

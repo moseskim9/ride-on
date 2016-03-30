@@ -1,2 +1,13 @@
 <h1>Locations#show</h1>
 <p>Find me in app/views/locations/show.html.erb</p>
+
+
+
+<% @location.bikes.each do |bike| %>
+    <h2> <%= link_to bike.make, location_bike_path(@location, bike) %> </h2>
+    <p> <%= bike.model %> </p>
+    <p> <%= bike.year %> </p>
+    <p> <%= bike.engine %> </p>
+    <p> <%= bike.bike_type %> </p>
+    <p> <%= bike.rate_daily %> </p>
+<% end %>
