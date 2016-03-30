@@ -24,7 +24,7 @@ Bike.create(make: 'Harley-Davidson', :model => 'FL Bobber', year: '1954', engine
 
 
 Location.create(city: 'London', image: 'http://cdn.ek.aero/english/images/London-1_tcm233-2111842.jpg')
-Location.create(city: 'Manchester', image: 'http://cdn.ek.aero/english/images/London-1_tcm233-2111842.jpg')
-Location.create(city: 'Liverpool', image: 'http://cdn.ek.aero/english/images/London-1_tcm233-2111842.jpg')
-Location.create(city: 'Los Angeles', image: 'http://cdn.ek.aero/english/images/London-1_tcm233-2111842.jpg')
+Location.create(city: 'Manchester', image: 'http://www.eurochrie.org/experience-eurochrie-2015/images/manchester-city.jpg')
+Location.create(city: 'Liverpool', image: 'http://www3.hilton.com/resources/media/hi/LPLHIHI/en_US/img/shared/full_page_image_gallery/main/HL_exterior04_2_675x359_FitToBoxSmallDimension_Center.jpg')
+# Location.create(city: 'Los Angeles', image: 'http://il9.picdn.net/shutterstock/videos/11414141/thumb/1.jpg')
 
