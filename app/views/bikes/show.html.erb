@@ -1,26 +1,95 @@
-<h1>Bikes#show</h1>
-<p>Find me in app/views/bikes/show.html.erb</p>
-
-<%= cl_image_tag @bike.bike_image, height: 300, width: 400, crop: :fill %>
-
-<p><%= @bike.make%></p>
-<p><%= @bike.model%></p>
-<p><%= @bike.engine%></p>
-<p><%= @bike.year%></p>
-<p><%= @bike.bike_type%></p>
-<p><%= @bike.rate_daily%></p>
-<p><%= @location%></p>
-
-<p><%= link_to "Book this bike!", new_location_bike_booking_path(@location, @bike) %></p>
-
-<p><%= link_to "Add a review", new_location_bike_review_path(@location, @bike)
-%></p>
 
 
-<h3>Reviews: </h3>
-<% @reviews.each do |r| %>
-  <p> Description: <%= r.description %> </p>
-  <p> Rating: <%= r.rating %> </p>
+
+<div class="media">
+  <div class="media-body">
+    <div class="media-section">
+      <h2><%= @bike.make%></h2><p><%= @bike.model%></p>
+      <%= cl_image_tag @bike.bike_image, height: 300, width: 400, crop: :fill %>
+    </div>
+
+
+    <div class="media-section">
+      <p>Make: <%= @bike.make%></p>
+      <p>Model: <%= @bike.model%></p>
+      <p>Engine: <%= @bike.engine%></p>
+      <p>Year: <%= @bike.year%></p>
+      <p>Type: <%= @bike.bike_type%></p>
+      <p>Daily rate: $ <%= @bike.rate_daily%>.00</p>
+      <p>Location: <%= @location.city%></p>
+      <p>Address: <%= @bike.address%></p>
+    </div>
+  </div>
+
+
+  <div class="media-aside">
+    <div class="media-section">
+
+
+      <div id="map" style="width: 100%; height: 600px;"></div>
+
+      <br><br>
+
+      <%= link_to "Book this bike!", new_location_bike_booking_path(@location, @bike), class:"btn btn-treehouse" %>
+
+      <br><br><br><br><br>
+
+      <p><%= link_to "Add a review", new_location_bike_review_path(@location, @bike)%>
+      </p>
+
+      <div class="media-section">
+        <h4>Reviews: </h4>
+        <% @bike.bookings.each do |booking| %>
+          <% booking.reviews.each do |r| %>
+            <p> Review: <%= r.description %> </p>
+            <p> Rating: (1-5): <%= r.rating %> </p>
+          <% end %>
+        <% end %>
+      </div>
+
+      <h4>Share - 382 upvotes</h4>
+      <div class="share-links">
+        <a href="#" class="share-link bg-facebook">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="#" class="share-link bg-twitter">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="#" class="share-link bg-email">
+          <i class="fa fa-envelope-o"></i>
+        </a>
+        <a href="#" class="share-link bg-text">
+          <i class="fa fa-mobile"></i>
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+<% end %>
+
+
+
+<% @bike.bookings.each do |booking| %>
+  <% booking.reviews.each do |r| %>
+    <p> Review: <%= r.description %> </p>
+    <p> Rating: (1-5): <%= r.rating %> </p>
+  <% end %>
 <% end %>
 
 

@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   def create
     @location = Location.find(params[:location_id])
     @bike = Bike.find(params[:bike_id])
-    @review = @bike.reviews.build(review_params)
+    @review = @bike.bookings.last.reviews.build(review_params)
     if @review.save
       redirect_to location_bike_path(@location, @bike, @review)
     else
