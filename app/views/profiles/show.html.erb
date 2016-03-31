@@ -1,25 +1,24 @@
 
 <div id="container">
 
+  <div id="wrapper">
 
-<div class="profile_image">
+    <div class="profile_image">
+      <%= image_tag @profile.profile_image, width: 200, height: 200, alt: 'a face' %>
+    </div>
 
-<%= image_tag ("icon-user-default.png"), width: 300, height: 300, alt: 'a face' %>
+    <div class="name_div">
+      Name:<%= @profile.try(:name) %>
+    </div>
 
-</div>
+    <div class="address_div">
+      Address:<%= @profile.try(:address) %>
+    </div>
 
-<div class="name_div">
+    <div class="edit_profile">
+      <%= link_to 'edit your profile', edit_user_profile_path(current_user) %>
+    </div>
 
-Name:<%= @profile.try(:name) %>
-
-</div>
-
-<div class="address_div">
-Address:<%= @profile.try(:address) %>
-</div>
-
-<div class="edit_profile">
-<%= link_to 'edit your profile', edit_user_profile_path(current_user) %>
-</div>
+  </div>
 
 </div>
