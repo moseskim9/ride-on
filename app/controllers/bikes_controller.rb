@@ -7,9 +7,26 @@ class BikesController < ApplicationController
     end
 
     def show
+      @bikes = Bike.all
       @reviews = Review.all
       # @review = Review.find(params[:review_id])
       @location = Location.find(params[:location_id])
+      @alert_message = "You are viewing #{@bike.make}"
+      @bikes = @bikes.select{ |b| b.latitude }
+      @markers = Gmaps4rails.build_markers(@bike) do |bike, marker|
+        marker.lat bike.latitude
+        marker.lng bike.longitude
+      end
+      if (params[:start_date] != nil && params[:end_date] != nil)
+         Booking.all.each do |booking|
+           if (Date.parse(params[:start_date]) >= Date.parse(booking.start_date)) && (Date.parse(params[:start_date]) <= Date.parse(booking.end_date)
+             @bikes = @bikes - [Bike.find(booking.bike_id)]
+           elsif  (Date.parse(params[:end_date]) >= Date.parse(booking.start_date)) && (Date.parse(params[:end_date]) <= Date.parse(booking.end_date))
+             @bikes = @bikes - [Bike.find(booking.bike_id)]
+           elsif Date.parse(params[:end_date]) - Date.parse(params[:start_date]) > Date.parse(booking.end_date) - Date.parse(booking.end_date)
+             @bikes = @bikes - [Bike.find(booking.bike_id)]
+           end
+      end
     end
 
     def new
@@ -39,7 +56,7 @@ class BikesController < ApplicationController
   private
 
     def bike_params
-      params.require(:bike).permit(:make, :model, :engine, :year, :bike_type, :rate_daily, :bike_image)
+      params.require(:bike).permit(:make, :model, :engine, :year, :bike_type, :rate_daily, :address, :bike_image)
     end
 
     def location

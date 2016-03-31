@@ -6,7 +6,14 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    # @bike = Bike.find(params[:id])
+    @bikes = Bike.all
+      # @review = Review.find(params[:review_id])
+    @bikes = @bikes.select{ |b| b.latitude }
+    @markers = Gmaps4rails.build_markers(@bikes) do |bike, marker|
+      marker.lat bike.latitude
+      marker.lng bike.longitude
+    end
+
   end
 
   # def new
