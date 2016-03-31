@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  root "pages#welcome"
-
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :locations, only: [:index, :show] do
     resources :bikes do
@@ -15,7 +13,11 @@ Rails.application.routes.draw do
     resource :profile, only: [:show, :edit, :update]
   end
 
+  root "pages#welcome"
+
 end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

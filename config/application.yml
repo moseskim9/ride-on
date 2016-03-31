@@ -11,3 +11,7 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 CLOUDINARY_URL: cloudinary://953528739528366:Ij5jXz1xXbQFkpTp151QP9zEb8Y@moseskim92
+
+development:
+  FB_ID: "1600182880304328"
+  FB_SECRET: "da99cc4be958605e0785b85150146cf9"
