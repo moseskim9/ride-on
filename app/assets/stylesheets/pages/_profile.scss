@@ -1,25 +1,206 @@
+#big_container {
+  height:auto;
+  width:auto;
+}
+
 
 #container {
+ padding-top:20px;
  margin:0 auto;
  margin-top: 20px;
  width:500px;
- height:auto;
+ height:500px;
  background:#ccc;
+ border-radius: 50%;
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+#container_edit {
+ padding-top:20px;
+ margin:0 auto;
+ margin-top: 20px;
+ width:450px;
+ height:450px;
+ background:#ccc;
+ border-radius: 50%;
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 #wrapper {
+ color:white;
  margin:0 auto;
  width:450px;
  height:450px;
- background-color: pink;
+ background-color: #06bdf7;
+ border-radius: 50%;
 }
 
-.profile_image, .name_div,
-.address_div, .edit_profile {
+ #wrapper:hover {
+  background-color: #06d9f7;
+ }
+
+ #wrapper_edit {
+ margin:0 auto;
+ width:400px;
+ height:400px;
+ background-color: #06bdf7;
+ border-radius: 50%;
+}
+
+#wrapper_edit:hover {
+  background-color: #06d9f7;
+ }
+
+.profile_image, .name_div, .edit_profile {
  text-align: center;
  margin-top: 10px;
 }
 
-.profile_image {
- padding-top: 10px;
+.address_div {
+  height:225px;
+  width:225px;
+  margin:0 auto;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 50%;
+  background-color: #06bdf7;
+  display: flex;
+  align-items:center;
+  justify-content:center;
 }
+
+.address_div:hover{
+    background-color: #06d9f7;
+  }
+
+
+.profile_image {
+ margin-top: 20px;
+ padding-top: 10px;
+ border-radius: 50%;
+}
+
+.about_me {
+  margin: 40px;
+  width:400px;
+  height:400px;
+  color:white;
+  background-color: #ccc;
+  border-radius: 50%;
+  float:left;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.content {
+  margin-top: 45px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.about_me_text {
+  margin-top: 10px;
+  height:350px;
+  width:350px;
+  border-radius: 50%;
+  background-color: #06bdf7;
+}
+
+.about_me_text:hover {
+    background-color: #06d9f7;
+  }
+
+.profile_edit {
+  width:100%;
+  height:auto;
+}
+
+.profile_address {
+  margin: 10px;
+  width:300px;
+  height:300px;
+  color:#fff;
+  background-color: #ccc;
+  border-radius: 50%;
+  float:right;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.address_form {
+  background-color: #ccc;
+  width:350px;
+  height:350px;
+  border-radius: 50%;
+  float:right;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.address_edit {
+  margin: 10px;
+  width:300px;
+  height:300px;
+  background-color: #06bdf7;
+  border-radius: 50%;
+}
+
+.name_form {
+  background-color: #ccc;
+  width:350px;
+  height:350px;
+  border-radius: 50%;
+  float:left;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.name_edit {
+  float:left;
+  width:300px;
+  height:300px;
+  background-color: #06bdf7;
+  border-radius: 50%;
+}
+
+button {
+  background-color: #ccc;
+  height:100px;
+  width:100px;
+  border-radius: 50%;
+  a {
+  color:#000;
+}
+}
+
+button:hover {
+  a {
+    color:#000;
+    text-decoration: none;
+  }
+  background-color: #c1c1c1;
+
+}
+
+.update_profile {
+  height:200px;
+  width:200px;
+  border-radius: 50%;
+}
+
+.text {
+  width:auto;
+  height:auto;
+}
+

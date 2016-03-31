@@ -1,22 +1,52 @@
-<div id="container">
+<div id="big_container">
 
-<div class="profile_image">
-<%= image_tag @profile.profile_image, width: 300, height: 300, alt: 'a face' %>
-</div>
+  <div id="container_edit">
 
-<div class="profile_form">
-<%= simple_form_for [@user, @profile] do |f| %>
-  <%= f.input :name, input_html: { class: 'special' } %>
-  <%= f.input :address, input_html: { maxlength: 20 } %>
-  <%= f.button :submit %>
-<% end %>
-</div>
+    <div id="wrapper_edit">
 
-<div>
-<%= link_to "<button>View Profile</button>".html_safe, user_profile_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
-</div>
+      <div class="profile_image">
+          <%= image_tag @profile.profile_image, width: 200, height: 200, alt: 'a face', class: "profile_image" %>
+      </div>
 
+      <div>
+        <%= link_to "<button>View Profile</button>".html_safe, user_profile_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+      </div>
 
-
+    </div>
 
 </div>
+
+        <div class="profile_edit">
+
+          <div class="name_form">
+
+            <%= simple_form_for [@user, @profile] do |f| %>
+            <div class="name_edit">
+              <%= f.input :name, input_html: { class: 'special' } %>
+            </div>
+
+
+          </div>
+
+          <div class="address_form">
+
+            <div class="address_edit"><%= f.input :name, input_html: { class: 'special' } %>
+            <!-- input_html: { class: 'special' } -->
+            </div>
+
+            <!-- f.input :address, input_html: { maxlength: 100 } -->
+
+              <button class="update_profile"><%= f.button :submit %></button>
+
+            </div>
+
+          </div>
+
+            <% end %>
+
+          </div>
+
+        </div>
+
+</div>
+
