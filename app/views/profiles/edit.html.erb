@@ -8,9 +8,12 @@
           <%= image_tag @profile.profile_image, width: 200, height: 200, alt: 'a face', class: "profile_image" %>
       </div>
 
-      <div>
-        <%= link_to "<button>View Profile</button>".html_safe, user_profile_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
-      </div>
+
+      <button class="button_center">
+         <%= link_to "View Profile".html_safe, user_profile_path, :id=>"open-contacts-dialog-btn", :class=>"inbox-sf-add-btn tip" %>
+      </button>
+
+
 
     </div>
 
@@ -21,26 +24,26 @@
           <div class="name_form">
 
             <%= simple_form_for [@user, @profile] do |f| %>
+
             <div class="name_edit">
               <%= f.input :name, input_html: { class: 'special' } %>
             </div>
 
+          </div>
 
+          <div class="button_edit">
+              <button class="update_profile"><%= f.button :submit %></button>
           </div>
 
           <div class="address_form">
 
-            <div class="address_edit"><%= f.input :name, input_html: { class: 'special' } %>
-            <!-- input_html: { class: 'special' } -->
-            </div>
-
-            <!-- f.input :address, input_html: { maxlength: 100 } -->
-
-              <button class="update_profile"><%= f.button :submit %></button>
-
+            <div class="address_edit">
+              <%= f.input :address %>
             </div>
 
           </div>
+
+        </div>
 
             <% end %>
 

@@ -9,7 +9,7 @@
     </div>
 
     <div class="name_div">
-      <h4>Name</h4><h2><stong><%= @profile.try(:name) %></stong></h2>
+      <h4>Name</h4><h2><stong><%= @profile.name %></stong></h2>
     </div>
 
 
@@ -21,23 +21,25 @@
   </div>
 
 </div>
-  <div class="about_me">
-    <div class="about_me_text text-center">
-     <div class="content">
 
-      <h3>About me</h3>
-      <p class="text">I love riding bikes, I owned my first bike when I was 8 years old, a cool 50cc yamaha, which I crashed repeatidly. This was the start of a long love affair which will live with me til the day I eventually die and go to bike heaven.</p>
-      </div>
+  <div class="profile_edit">
+    <div class="about_me">
+      <div class="about_me_text text-center">
+       <div class="content">
 
-    </div>
-  </div>
+        <h3>About me</h3>
+        <p class="text">I love riding bikes, I owned my first bike when I was 8 years old, a cool 50cc yamaha, which I crashed repeatidly. This was the start of a long love affair which will live with me til the day I eventually die and go to bike heaven.</p>
+        </div>
 
-  <div class="profile_address">
-    <div class="address_div">
-      <div class="central-text">
-       <h3>Address</h3><%= @profile.try(:address) %>
       </div>
     </div>
-  </div>
 
+    <div class="profiles_address">
+      <div class="address_div">
+        <div class="central-text">
+         <h3>Address</h3><%= @profile.address %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
