@@ -19,6 +19,8 @@ class BikesController < ApplicationController
       end
     end
 
+
+
     def new
       @bike = location.bikes.new
     end
