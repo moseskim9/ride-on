@@ -2,6 +2,10 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
+    if params[:location_id]
+      @location = Location.find(params[:location_id])
+      redirect_to location_path(@location)
+    end
   end
 
   def show
@@ -13,8 +17,9 @@ class LocationsController < ApplicationController
       marker.lat bike.latitude
       marker.lng bike.longitude
     end
-
   end
+
+
 
   # def new
   #   @bike = Bike.find(params[:bike_id])
