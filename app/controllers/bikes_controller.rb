@@ -17,16 +17,6 @@ class BikesController < ApplicationController
         marker.lat bike.latitude
         marker.lng bike.longitude
       end
-      if (params[:start_date] != nil && params[:end_date] != nil)
-         Booking.all.each do |booking|
-           if (Date.parse(params[:start_date]) >= Date.parse(booking.start_date)) && (Date.parse(params[:start_date]) <= Date.parse(booking.end_date)
-             @bikes = @bikes - [Bike.find(booking.bike_id)]
-           elsif  (Date.parse(params[:end_date]) >= Date.parse(booking.start_date)) && (Date.parse(params[:end_date]) <= Date.parse(booking.end_date))
-             @bikes = @bikes - [Bike.find(booking.bike_id)]
-           elsif Date.parse(params[:end_date]) - Date.parse(params[:start_date]) > Date.parse(booking.end_date) - Date.parse(booking.end_date)
-             @bikes = @bikes - [Bike.find(booking.bike_id)]
-           end
-      end
     end
 
     def new
