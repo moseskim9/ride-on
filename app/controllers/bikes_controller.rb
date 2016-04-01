@@ -27,6 +27,7 @@ class BikesController < ApplicationController
 
     def create
       @bike = location.bikes.build(bike_params)
+      @bike.user = current_user
       if @bike.save
         redirect_to location_bike_path(location, @bike)
       else

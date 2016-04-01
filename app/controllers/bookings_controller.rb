@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @bike = Bike.find(params[:bike_id])
     @location = Location.find(params[:location_id])
     @booking = @bike.bookings.build(booking_params)
+    @booking.user = current_user
     if @booking.save
       redirect_to location_bike_booking_path(@location, @bike, @booking)
     else
