@@ -17,6 +17,7 @@ class LocationsController < ApplicationController
       marker.lat bike.latitude
       marker.lng bike.longitude
     end
+    redirect_to location_bikes_path(@location)
   end
 
 
