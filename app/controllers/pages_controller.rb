@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 
   def search
     @bikes = Bike.where(location_id: params[:location_id])
+    @location = Location.find(params[:location_id])
 
     start_date = params[:start_date].to_date
     end_date = params[:end_date].to_date
@@ -25,4 +26,5 @@ class PagesController < ApplicationController
     end
   @bikes
   end
+
 end

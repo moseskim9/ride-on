@@ -1,14 +1,44 @@
-<h1>Bikes#new</h1>
-<p>Find me in app/views/bikes/new.html.erb</p>
 
-<%= simple_form_for [@location, @bike] do |f| %>
-  <%= f.input :make %>
-  <%= f.input :model %>
-  <%= f.input :engine %>
-  <%= f.input :year %>
-  <%= f.input :bike_type %>
-  <%= f.input :rate_daily %>
-  <%= f.input :address %>
-  <%= f.input :bike_image %>
-  <%= f.button :submit %>
-<% end %>
+
+<div class="form-left" style="background-image:  url('http://www.teknohabernet.com/wp-content/uploads/2015/12/Ducati-Duvar-Kagidi-1.png');">
+  <div class="banner-content">
+    <br>
+    <br>
+    <br>
+    <h1>List Your Bike</h1>
+
+     <div class="wrapper-form">
+
+
+      <%= simple_form_for [@location, @bike] do |f| %>
+        <%= f.input :make %>
+        <%= f.input :model %>
+        <%= f.input :engine %>
+        <%= f.input :year %>
+        <%= f.input :bike_type %>
+        <%= f.input :rate_daily %>
+        <%= f.input :address %>
+        <%= f.input :bike_image %>
+        <%= f.button :submit %>
+      <% end %>
+
+
+
+
+
+       <!--  <input type="date" class="form-control input-md" placeholder="check in">
+        <input type="date" class="form-control input-md" placeholder="check out">
+        <select class="form-control input-md" placeholder="Type">
+          <option value="1">Type</option>
+          <option value="2">Scooter</option>
+          <option value="3">Motorcycle</option>
+          <option value="4">Moped</option>
+        </select> -->
+        <!-- <input type="submit" class="btn btn-info btn-md" value="Search"> -->
+
+
+      <br><br>
+
+    </div>
+  </div>
+</div>
