@@ -11,6 +11,7 @@ class BikesController < ApplicationController
       @reviews = Review.all
       # @review = Review.find(params[:review_id])
       @location = Location.find(params[:location_id])
+      @booking = @bike.bookings.new
       @alert_message = "You are viewing #{@bike.make}"
       @bikes = @bikes.select{ |b| b.latitude }
       @markers = Gmaps4rails.build_markers(@bike) do |bike, marker|

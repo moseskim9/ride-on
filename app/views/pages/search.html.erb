@@ -1,6 +1,25 @@
-<% @bikes.each do |bike| %>
-  bike:<%= bike.model %>
-<%  end %>
 
 
 
+<div class="wrapper text-center">
+  <h2>Bikes Available in <%= @location.city%></h2>
+  <div class="container container-local">
+    <div class="row">
+      <% @bikes.each do |bike| %>
+      <div class="col-sm-6 col-md-4">
+
+        <%= link_to location_bike_path(bike.location, bike) do %>
+        <div class="card" style="background-image: url('<%= image_url bike.bike_image %>'), linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+
+          <div class="card-category"><%= bike.make %></div>
+          <div class="card-description">
+            <h2><%= bike.model %></h2>
+          </div>
+
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

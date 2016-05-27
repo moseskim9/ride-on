@@ -30,7 +30,8 @@
 
       <br><br>
 
-      <%= link_to "Book this bike!", new_location_bike_booking_path(@location, @bike), class:"btn btn-treehouse" %>
+
+      <%= render 'shared/booking' %>
 
       <br><br><br><br><br>
 
@@ -85,12 +86,7 @@
 
 
 
-<% @bike.bookings.each do |booking| %>
-  <% booking.reviews.each do |r| %>
-    <p> Review: <%= r.description %> </p>
-    <p> Rating: (1-5): <%= r.rating %> </p>
-  <% end %>
-<% end %>
+
 
 
 
