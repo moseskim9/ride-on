@@ -1,72 +1,83 @@
 
+<div class="container">
+<!-- <div class="media"> -->
+
+<div class="row">
+
+      <div class="media-bodies">
+      <div class="col-xs-12 col-sm-6">
+
+        <div class="media-section">
+          <h2><%= @bike.make%></h2><p><%= @bike.model%></p>
+          <%= cl_image_tag @bike.bike_image%>
+        </div>
 
 
-<div class="media">
-  <div class="media-body">
-    <div class="media-section">
-      <h2><%= @bike.make%></h2><p><%= @bike.model%></p>
-      <%= cl_image_tag @bike.bike_image, height: 300, width: 400, crop: :fill %>
-    </div>
-
-
-    <div class="media-section">
-      <p>Make: <%= @bike.make%></p>
-      <p>Model: <%= @bike.model%></p>
-      <p>Engine: <%= @bike.engine%></p>
-      <p>Year: <%= @bike.year%></p>
-      <p>Type: <%= @bike.bike_type%></p>
-      <p>Daily rate: $ <%= @bike.rate_daily%>.00</p>
-      <p>Location: <%= @location.city%></p>
-      <p>Address: <%= @bike.address%></p>
-    </div>
-  </div>
-
-
-  <div class="media-aside">
-    <div class="media-section">
-
-
-      <div id="map" style="width: 100%; height: 500px;"></div>
-
-      <br><br>
-
-
-      <%= render 'shared/booking' %>
-
-      <br><br><br><br><br>
-
-      <p><%= link_to "Add a review", new_location_bike_review_path(@location, @bike)%>
-      </p>
-
-      <div class="media-section">
-        <h4>Reviews: </h4>
-        <% @bike.bookings.each do |booking| %>
-          <% booking.reviews.each do |r| %>
-            <p> Review: <%= r.description %> </p>
-            <p> Rating: (1-5): <%= r.rating %> </p>
-          <% end %>
-        <% end %>
+        <div class="media-section">
+          <p>Make: <%= @bike.make%></p>
+          <p>Model: <%= @bike.model%></p>
+          <p>Engine: <%= @bike.engine%></p>
+          <p>Year: <%= @bike.year%></p>
+          <p>Type: <%= @bike.bike_type%></p>
+          <p>Daily rate: $ <%= @bike.rate_daily%>.00</p>
+          <p>Location: <%= @location.city%></p>
+          <p>Address: <%= @bike.address%></p>
+        </div>
       </div>
-
-      <h4>Share - 382 upvotes</h4>
-      <div class="share-links">
-        <a href="#" class="share-link bg-facebook">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a href="#" class="share-link bg-twitter">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a href="#" class="share-link bg-email">
-          <i class="fa fa-envelope-o"></i>
-        </a>
-        <a href="#" class="share-link bg-text">
-          <i class="fa fa-mobile"></i>
-        </a>
       </div>
 
 
-    </div>
+
+      <div class="media-side">
+      <div class="col-xs-12 col-sm-6">
+        <div class="media-section">
+
+
+          <div id="map" style="width: 100%; height: 500px;"></div>
+
+          <br><br>
+
+
+          <%= render 'shared/booking' %>
+
+          <br><br><br><br><br>
+
+          <p><%= link_to "Add a review", new_location_bike_review_path(@location, @bike)%>
+          </p>
+
+          <div class="media-section">
+            <h4>Reviews: </h4>
+            <% @bike.bookings.each do |booking| %>
+              <% booking.reviews.each do |r| %>
+                <p> Review: <%= r.description %> </p>
+                <p> Rating: (1-5): <%= r.rating %> </p>
+              <% end %>
+            <% end %>
+          </div>
+
+          <h4>Share - 382 upvotes</h4>
+          <div class="share-links">
+            <a href="#" class="share-link bg-facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="share-link bg-twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="share-link bg-email">
+              <i class="fa fa-envelope-o"></i>
+            </a>
+            <a href="#" class="share-link bg-text">
+              <i class="fa fa-mobile"></i>
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+      </div>
+
   </div>
+<!-- </div> -->
 </div>
 
 <div id="map" style="width: 100%; height: 600px;"></div>
