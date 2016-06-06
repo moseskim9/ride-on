@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
+    @bookings = current_user.bookings
+    @all_bookings = Booking.all
   end
 
   def edit
