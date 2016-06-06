@@ -27,7 +27,7 @@
 }
 .banner-a {
   text-align: center;
-  height: 100vh;
+  height: 120vh;
   background-size: cover !important;
   background-attachment: fixed;
   display: flex;
@@ -48,9 +48,4 @@
   padding-left: 70px;
   font-weight: light;
 }
-.banner-contents h1 h2 p{
-     @media(max-width: 480px)
-   {
-     font-size: 20pt;
-   }
-}
+
