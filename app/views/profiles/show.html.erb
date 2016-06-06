@@ -42,4 +42,29 @@
       </div>
     </div>
   </div>
+
+  <div class="show-box">
+
+
+  <p> You are user id: <%= current_user.id %> </p>
+
+  <p> Here are your bookings:</p>
+
+
+  <% @bookings.each do |b| %>
+  <p> start date: <%= b.start_date %> end date: <%= b.end_date%> </p>
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+
+  <p> Here are all the  bookings:</p>
+  <% @all_bookings.each do |b| %>
+
+  <p> User id: <%= b.user_id %> start date: <%= b.start_date %> end date: <%= b.end_date%> </p>
+  <% end %>
+
+  </div>
+
 </div>
