@@ -27,6 +27,13 @@
 }
 .button-content {
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+.btn-borderline {
+  border: 2px solid white;
+  padding: 10px 15px;
+  font-weight: light;
+}
 /* Build your own button classes ! */
