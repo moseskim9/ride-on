@@ -1,7 +1,7 @@
-<div class="banner" style="background-image:  url('http://www.weareninetynine.co/wp-content/uploads/2015/09/DGr_Sydney206280915.jpg');">
+<div class="banner text-center" style="background-image: linear-gradient(23deg, rgba(0,0,0,0) -158%, rgba(0,4,13,9) 143%), url('http://www.weareninetynine.co/wp-content/uploads/2015/09/DGr_Sydney206280915.jpg');">
   <div class="banner-content">
     <h1>RIDE ON</h1>
-    <p>Pick a ride, go anywhere</p>
+    <p>PICK A RIDE, GO ANYWHERE</p>
      <div class="wrapper-form">
 
 
@@ -9,10 +9,8 @@
         <%= select_tag :location_id, options_from_collection_for_select(@locations, :id, :city ), class:"form-control input-md" %>
         <%= date_field_tag 'start_date', nil, class:"form-control input-md"%>
         <%= date_field_tag 'end_date', nil, class:"form-control input-md" %>
-        <%= submit_tag "Search", class:"btn btn-primary btn-lg" %>
+        <%= submit_tag "Search", class:"btn btn-primary btn-md" %>
       <% end %>
-
-
 
 
 
@@ -33,23 +31,37 @@
   </div>
 </div>
 
-
-
-
-<div class="container container-local text-center">
-
-  <div class="card-title">
-  <h2>YOUR DESTINATION</h2>
+<div class="banner-wrapper">
+  <div class="banner-content-center text-center">
+    <h1>MAKE REVENUE WITH YOUR BIKE</h1>
+    <p>List your bike for free and rent to whenever you want.
+    Bikes get lonely too.
+    </p>
+    <br>
+    <div class="text-center">
+    <a href="#" class="btn btn-primary btn-lg" role="button">How it works</a>
+    </div>
   </div>
+
+</div>
+
+
+
+<div class="container-local text-center">
+
+<!--   <div class="card-title">
+  <h2>DESTINATIONS</h2> -->
+<!--   </div> -->
 
   <div class="row">
     <% @locations.each do |location| %>
-    <div class="col-sm-6 col-md-4">
+    <div class="card-padding col-sm-6 col-md-4 highlight">
 
       <%= link_to location_path(location) do %>
-      <div class="card" style="background-image: url('<%= image_url location.image %>'), linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+      <div class="card" style="background-image: url('<%= image_url location.image %>');">
+      <div class="overlay"></div>
 
-        <div class="card-category">Popular</div>
+        <div class="info"></div>
         <div class="card-description">
           <h2><%= location.city %></h2>
         </div>
@@ -60,13 +72,25 @@
     <% end %>
   </div>
 
+  <script>
+  $(".card").hover(
+    function(){
+        $(".info", this).css("display", "block");
+    }, function(){
+        $(".info", this).css("display", "none");
+  });
+  </script>
+
+
 </div>
 
-<div id="how-to">
-  <div class="banner banner-a" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.motowallpapers.com/custom/i/icon/2012-the-roach-1986-harley-davidson-sportster/Icon-The-Roach-2012-Harley-Davidson-Sportster-1986-1920x1080-003.jpg');">
+<!-- <div id="how-to">
+  <div class="banner-a" style="background-image: linear-gradient(23deg, rgba(0,0,0,0) -158%, rgba(0,4,13,9) 143%), url('http://www.motowallpapers.com/custom/i/icon/2012-the-roach-1986-harley-davidson-sportster/Icon-The-Roach-2012-Harley-Davidson-Sportster-1986-1920x1080-003.jpg');">
+
+
+
     <div class="banner-contents text-center ">
       <h1>How it works</h1>
-      <p>In just 3 steps, find the trip of your dreams</p>
       <div class="row">
         <div class="col-md-4">
           <h1><i class="fa fa-plane"></i></h1>
@@ -85,22 +109,66 @@
         </div>
       </div>
     </div>
+
+
+  </div>
+</div>
+ -->
+<div class="logos-container text-center">
+  <div class="container">
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://www.car-brand-names.com/wp-content/uploads/2015/04/BMW-symbol.jpg">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="https://3.bp.blogspot.com/_n_W3UtkijMQ/TJSWxOK9vUI/AAAAAAAAAJs/5JVu9ROZVCk/s1600/Honda.png">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://images.all-free-download.com/images/graphiclarge/harleydavidson_logo_29212.jpg">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://freevectorlogo.net/wp-content/uploads/2013/05/suzuki-eps-vector-logo-200x200.png">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/022014/triumph_motorcycles_2013.jpg?itok=If4-Whsc">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://www.logodesignblog.net/logos/ktmlogo-logo.jpg">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://www.asphaltandrubber.com/wp-content/uploads/2010/12/norton_logo.png">
+    </div>
+
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://www.freelogovectors.net/wp-content/uploads/2012/05/aprilia-logo.jpg">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="https://amsducati.com/media/wysiwyg/brands/moto-guzzi-logo.png">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://brand.polaris.com/wp-content/uploads/2015/11/Polaris_Victory_logos_Primary_1c-Black_01_696x375.png">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="http://eshop-stickers.com/sites/default/files/imagecache/node_image/yamaha_logo_5a.png">
+    </div>
+    <div class="col-xs-4 col-md-2 logos-margin logos">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Ducati_red_logo.PNG">
+    </div>
   </div>
 </div>
 
 
 
 
-<div class="wrapper text-center">
+<!-- <div class="wrapper text-center">
 
   <div class="card-title">
   <h2>LASTEST BIKES LISTED</h2>
   </div>
-  <div class="container container-local">
+  <div class="container">
 
     <div class="row">
       <% @bikes.each do |bike| %>
-      <div class="col-sm-6 col-md-4">
+      <div class="card-padding col-sm-6 col-md-4">
 
 
         <div class="card" style="background-image: url('<%= image_url bike.bike_image %>'), linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
@@ -116,7 +184,7 @@
       <% end %>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
