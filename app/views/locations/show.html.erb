@@ -18,7 +18,8 @@
   <div class="container-local">
     <div class="row">
 
-      <div class="bike-cards">
+      <div class="bike-cards scrollable">
+      <div class="col-xs-12 col-sm-6">
         <% @location.bikes.each do |bike| %>
         <div class="col-xs-12 card-padding">
 
@@ -35,9 +36,12 @@
         </div>
         <% end %>
       </div>
+      </div>
+
 
       <div class="bike-maps">
-      <div id="map" style="width: 50%; height: 600px; zoom: 1"></div>
+      <div class="col-xs-12 col-sm-6">
+        <div id="map" style="width: 90%; height: 600px; zoom: 1"></div>
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
             $(document).on('ready', function() {
@@ -50,7 +54,7 @@
             })
           <% end %>
         <% end %>
-
+      </div>
       </div>
 
     </div>

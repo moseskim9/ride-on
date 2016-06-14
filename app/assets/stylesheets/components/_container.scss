@@ -21,3 +21,7 @@
   width: 100px;
   height: 13vh;
 }
+.scrollable {
+    height: 600px; /* or any value */
+    overflow-y: auto;
+}
