@@ -24,4 +24,12 @@
 .scrollable {
     height: 600px; /* or any value */
     overflow-y: auto;
+    padding-right: 0;
+    padding-left: 0;
+}
+.scrollable img {
+  object-fit: cover;
+}
+.bike-maps-padding {
+  background-size: cover !important;
 }

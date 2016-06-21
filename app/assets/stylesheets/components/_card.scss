@@ -5,6 +5,7 @@
   background-size: cover !important;
   color: white;
   position: relative;
+  object-fit: cover;
 }
 
 .card:hover > .overlay {
